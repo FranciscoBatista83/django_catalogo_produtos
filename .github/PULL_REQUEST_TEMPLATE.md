@@ -7,16 +7,16 @@ Ambiente: VS Code, Git, GitHub, Google Chrome
 ## 📍 Semana 1 – Estrutura Inicial + Listagem de Produtos
 
 
-- [ ] Criei o projeto Django no VS Code
-- [ ] Inicializei o repositório Git local com `git init`
-- [ ] Fiz o primeiro commit (`git add .` / `git commit`)
-- [ ] Criei o app `produtos`
-- [ ] Configurei o banco SQLite
+- [x] Criei o projeto Django no VS Code
+- [x] Inicializei o repositório Git local com `git init`
+- [x] Fiz o primeiro commit (`git add .` / `git commit`)
+- [x] Criei o app `produtos`
+- [x] Configurei o banco SQLite
 
 
-- [ ] Modelei a tabela `Produto` com os campos: Nome, Descrição, Preço, Data
-- [ ] Fiz as migrações iniciais (`makemigrations` e `migrate`)
-- [ ] Fiz um commit com essa etapa
+- [x] Modelei a tabela `Produto` com os campos: Nome, Descrição, Preço, Data
+- [x] Fiz as migrações iniciais (`makemigrations` e `migrate`)
+- [x] Fiz um commit com essa etapa
 
 
 - [ ] Cadastrei pelo menos 3 produtos no Django Admin
