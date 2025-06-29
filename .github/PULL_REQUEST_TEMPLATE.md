@@ -33,9 +33,9 @@ Ambiente: VS Code, Git, GitHub, Google Chrome
 
 ## 📍 Semana 2 – CRUD Completo + Categorias
 
-- [ ] Criei o formulário para adicionar novos produtos (Create)
-- [ ] Testei o cadastro no Chrome
-- [ ] Fiz commit e push
+- [x] Criei o formulário para adicionar novos produtos (Create)
+- [x] Testei o cadastro no Chrome
+- [x] Fiz commit e push
 
 - [ ] Criei a página de detalhes para cada produto
 - [ ] Testei a navegação entre listagem e detalhe
