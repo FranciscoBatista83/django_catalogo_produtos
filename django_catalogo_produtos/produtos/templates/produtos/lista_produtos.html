@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Produtos</title>
+</head>
+<body>
+    <h1>Catálogo de Produtos</h1>
+
+    <ul>
+    {% for produto in produtos %}
+        <li>
+            <strong>{{ produto.nome }}</strong> - R$ {{ produto.preco }}<br />
+            {{ produto.descricao }}<br />
+            <em>Cadastrado em: {{ produto.data_cadastro }}</em>
+        </li>
+    {% empty %}
+        <li>Nenhum produto cadastrado.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
