@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Produto</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-container {
+        max-width: 400px;
+      }
+      input,
+      textarea,
+      button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      button {
+        cursor: pointer;
+      }
+      .btn-salvar-voltar {
+        background-color: #4caf50;
+        color: white;
+      }
+      .btn-salvar-continuar {
+        background-color: #2196f3;
+        color: white;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cadastrar Novo Produto</h1>
+
+    <div class="form-container">
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+
+        <!-- Botão 1: Salvar e voltar para a lista -->
+        <button type="submit" name="salvar_voltar" class="btn-salvar-voltar">
+          Salvar e Voltar para Lista
+        </button>
+
+        <!-- Botão 2: Salvar e continuar cadastrando -->
+        <button
+          type="submit"
+          name="salvar_continuar"
+          class="btn-salvar-continuar"
+        >
+          Salvar e Continuar Cadastrando
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
