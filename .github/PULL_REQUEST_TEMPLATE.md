@@ -24,10 +24,10 @@ Ambiente: VS Code, Git, GitHub, Google Chrome
 - [x] Configurei a URL para a listagem
 - [x] Fiz commit
 
-- [ ] Criei o template HTML para exibir a lista de produtos
-- [ ] Testei no navegador Chrome
-- [ ] Fiz commit
-- [ ] Subi o projeto para o GitHub (`git remote add` + `git push`)
+- [x] Criei o template HTML para exibir a lista de produtos
+- [x] Testei no navegador Chrome
+- [x] Fiz commit
+- [x] Subi o projeto para o GitHub (`git remote add` + `git push`)
 
 ---
 
