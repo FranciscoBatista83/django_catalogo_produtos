@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Produto
 from .forms import ProdutoForm
 
@@ -23,3 +23,7 @@ def criar_produto(request):
         form = ProdutoForm()
     
     return render(request, 'produtos/criar_produto.html', {'form': form})
+
+def detalhe_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
+    return render(request, 'produtos/detalhe_produto.html', {'produto': produto})

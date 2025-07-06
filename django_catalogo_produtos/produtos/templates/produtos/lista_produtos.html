@@ -6,74 +6,74 @@
 
     <!-- Estilo CSS interno -->
     <style>
-        /* Estilo para o corpo da página */
         body {
-            font-family: Arial, sans-serif; /* Tipo de fonte usada */
-            margin: 40px; /* Espaçamento das bordas da página */
-            background-color: #f0f0f0; /* Cor de fundo clara */
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
         }
 
-        /* Estilo para o título principal */
         h1 {
-            color: #333; /* Cor do texto: cinza escuro */
-            text-align: center; /* Centraliza o título */
+            color: #333;
+            text-align: center;
         }
 
-        /* Estilo para cada bloco de produto */
         .produto {
-            background-color: #ffffff; /* Fundo branco para destaque */
-            border: 1px solid #ccc; /* Borda cinza clara */
-            padding: 20px; /* Espaçamento interno */
-            margin-bottom: 20px; /* Espaço entre os blocos de produtos */
-            border-radius: 8px; /* Bordas arredondadas */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve */
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Estilo para o nome do produto */
         .produto h2 {
-            color: #2c3e50; /* Azul escuro */
-            margin-bottom: 10px; /* Espaço abaixo do título */
+            margin-bottom: 10px;
+            font-size: 1.5em;
         }
 
-        /* Estilo para o preço */
+        .produto h2 a {
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.3s;
+        }
+
+        .produto h2 a:hover {
+            color: #1abc9c;
+        }
+
         .preco {
-            color: #27ae60; /* Verde */
-            font-weight: bold; /* Negrito */
-            font-size: 1.2em; /* Tamanho de fonte maior */
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
         }
 
-        /* Estilo para a descrição */
         .descricao {
-            margin-bottom: 10px; /* Espaço abaixo da descrição */
-            color: #555; /* Cinza médio */
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        /* Estilo para a data de cadastro */
         .data {
-            font-size: 0.9em; /* Fonte um pouco menor */
-            color: #888; /* Cinza claro */
+            font-size: 0.9em;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <!-- Título principal da página -->
     <h1>Catálogo de Produtos</h1>
 
-    <!-- Loop Django: Para cada produto na lista -->
     {% for produto in produtos %}
         <div class="produto">
-            <!-- Nome do Produto + Preço -->
-            <h2>{{ produto.nome }} - <span class="preco">R$ {{ produto.preco }}</span></h2>
+            <h2>
+                <a href="{% url 'detalhe_produto' produto.id %}">
+                    {{ produto.nome }}
+                </a> - <span class="preco">R$ {{ produto.preco }}</span>
+            </h2>
 
-            <!-- Descrição do Produto -->
             <p class="descricao">{{ produto.descricao }}</p>
-
-            <!-- Data de Cadastro -->
             <p class="data">Cadastrado em: {{ produto.data_cadastro|date:"d/m/Y H:i" }}</p>
         </div>
     {% empty %}
-        <!-- Caso não exista nenhum produto -->
         <p>Nenhum produto cadastrado.</p>
     {% endfor %}
 
