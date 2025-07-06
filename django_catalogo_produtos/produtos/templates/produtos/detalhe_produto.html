@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{ produto.nome }}</title>
 
     <!-- Estilo CSS interno -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f0f0f0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f0f0f0;
+      }
 
-        .container {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            max-width: 700px;
-            margin: auto;
-        }
+      .container {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 700px;
+        margin: auto;
+      }
 
-        h1 {
-            color: #2c3e50;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
+      h1 {
+        color: #2c3e50;
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
 
-        .preco {
-            color: #27ae60;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
+      .preco {
+        color: #27ae60;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
 
-        .descricao {
-            color: #555;
-            margin: 20px 0;
-        }
+      .descricao {
+        color: #555;
+        margin: 20px 0;
+      }
 
-        .data {
-            font-size: 0.9em;
-            color: #888;
-        }
+      .data {
+        font-size: 0.9em;
+        color: #888;
+      }
 
-        .voltar {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #3498db;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+      .voltar {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #3498db;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
 
-        .voltar:hover {
-            color: #1abc9c;
-        }
+      .voltar:hover {
+        color: #1abc9c;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <h1>{{ produto.nome }}</h1>
-        <p class="preco">R$ {{ produto.preco }}</p>
-        <p class="descricao">{{ produto.descricao }}</p>
-        <p class="data">Cadastrado em: {{ produto.data_cadastro|date:"d/m/Y H:i" }}</p>
+      <h1>{{ produto.nome }}</h1>
+      <p class="preco">R$ {{ produto.preco }}</p>
+      <p class="descricao">{{ produto.descricao }}</p>
+      <p class="data">
+        Cadastrado em: {{ produto.data_cadastro|date:"d/m/Y H:i" }}
+      </p>
 
-        <a class="voltar" href="{% url 'lista_produtos' %}">← Voltar para o catálogo</a>
+      <a class="voltar" href="{% url 'lista_produtos' %}"
+        >← Voltar para o catálogo</a
+      >
+      <a
+        class="voltar"
+        href="{% url 'deletar_produto' produto.id %}"
+        style="color: #c0392b; margin-left: 20px"
+        >🗑️ Excluir Produto
+      </a>
+      <a
+        class="voltar"
+        href="{% url 'editar_produto' produto.id %}"
+        style="
+          color: #2980b9;
+          margin-right: 20px;
+          font-weight: bold;
+          text-decoration: none;
+        "
+        >✏️ Editar Produto
+      </a>
     </div>
-
-</body>
+  </body>
 </html>

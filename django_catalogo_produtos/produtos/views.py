@@ -27,3 +27,25 @@ def criar_produto(request):
 def detalhe_produto(request, produto_id):
     produto = get_object_or_404(Produto, id=produto_id)
     return render(request, 'produtos/detalhe_produto.html', {'produto': produto})
+
+def editar_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('detalhe_produto', produto_id=produto.id)
+    else:
+        form = ProdutoForm(instance=produto)
+
+    return render(request, 'produtos/editar_produto.html', {'form': form, 'produto': produto})
+
+def deletar_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
+
+    if request.method == 'POST':
+        produto.delete()
+        return redirect('lista_produtos')
+
+    return render(request, 'produtos/deletar_produto.html', {'produto': produto})
