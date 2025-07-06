@@ -39,22 +39,35 @@
 
     <div class="form-container">
       <form method="post">
-        {% csrf_token %} {{ form.as_p }}
+  {% csrf_token %}
 
-        <!-- Botão 1: Salvar e voltar para a lista -->
-        <button type="submit" name="salvar_voltar" class="btn-salvar-voltar">
-          Salvar e Voltar para Lista
-        </button>
+  <label for="{{ form.nome.id_for_label }}">Nome</label>
+  {{ form.nome }}
 
-        <!-- Botão 2: Salvar e continuar cadastrando -->
-        <button
-          type="submit"
-          name="salvar_continuar"
-          class="btn-salvar-continuar"
-        >
-          Salvar e Continuar Cadastrando
-        </button>
-      </form>
+  <label for="{{ form.descricao.id_for_label }}">Descrição</label>
+  {{ form.descricao }}
+
+  <label for="{{ form.preco.id_for_label }}">Preço</label>
+  {{ form.preco }}
+
+  <label for="{{ form.categoria.id_for_label }}">Categoria</label>
+  {{ form.categoria }}
+
+  <!-- Botão 1 -->
+  <button type="submit" name="salvar_voltar" class="btn-salvar-voltar">
+    Salvar e Voltar para Lista
+  </button>
+
+  <!-- Botão 2 -->
+  <button
+    type="submit"
+    name="salvar_continuar"
+    class="btn-salvar-continuar"
+  >
+    Salvar e Continuar Cadastrando
+  </button>
+</form>
+
     </div>
   </body>
 </html>
