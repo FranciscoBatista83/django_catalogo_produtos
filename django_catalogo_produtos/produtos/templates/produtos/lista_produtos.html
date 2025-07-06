@@ -1,81 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Catálogo de Produtos</title>
 
     <!-- Estilo CSS interno -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f0f0f0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f0f0f0;
+      }
 
-        h1 {
-            color: #333;
-            text-align: center;
-        }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
 
-        .produto {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+      .produto {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
 
-        .produto h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
+      .produto h2 {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+      }
 
-        .produto h2 a {
-            text-decoration: none;
-            color: #2c3e50;
-            transition: color 0.3s;
-        }
+      .produto h2 a {
+        text-decoration: none;
+        color: #2c3e50;
+        transition: color 0.3s;
+      }
 
-        .produto h2 a:hover {
-            color: #1abc9c;
-        }
+      .produto h2 a:hover {
+        color: #1abc9c;
+      }
 
-        .preco {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
+      .preco {
+        color: #27ae60;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
 
-        .descricao {
-            margin-bottom: 10px;
-            color: #555;
-        }
+      .descricao {
+        margin-bottom: 10px;
+        color: #555;
+      }
 
-        .data {
-            font-size: 0.9em;
-            color: #888;
-        }
+      .data {
+        font-size: 0.9em;
+        color: #888;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div style="text-align: center; margin-bottom: 30px">
+      <a
+        href="{% url 'criar_produto' %}"
+        style="
+          background-color: #27ae60;
+          color: white;
+          padding: 12px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: bold;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s;
+        "
+        onmouseover="this.style.backgroundColor='#2ecc71'"
+        onmouseout="this.style.backgroundColor='#27ae60'"
+      >
+        ➕ Novo Produto
+      </a>
+      <a
+        href="{% url 'criar_categoria' %}"
+        style="
+          background-color: #9b59b6;
+          color: white;
+          padding: 12px 20px;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: bold;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          margin-left: 10px;
+        "
+      >
+        📂 Nova Categoria
+      </a>
+    </div>
 
     <h1>Catálogo de Produtos</h1>
 
     {% for produto in produtos %}
-        <div class="produto">
-            <h2>
-                <a href="{% url 'detalhe_produto' produto.id %}">
-                    {{ produto.nome }}
-                </a> - <span class="preco">R$ {{ produto.preco }}</span>
-            </h2>
+    <div class="produto">
+      <h2>
+        <a href="{% url 'detalhe_produto' produto.id %}">
+          {{ produto.nome }}
+        </a>
+        - <span class="preco">R$ {{ produto.preco }}</span>
+      </h2>
 
-            <p class="descricao">{{ produto.descricao }}</p>
-            <p class="data">Cadastrado em: {{ produto.data_cadastro|date:"d/m/Y H:i" }}</p>
-        </div>
+      <p class="descricao">{{ produto.descricao }}</p>
+      <p><strong>Categoria:</strong> {{ produto.categoria.nome }}</p>
+      <p class="data">
+        Cadastrado em: {{ produto.data_cadastro|date:"d/m/Y H:i" }}
+      </p>
+    </div>
     {% empty %}
-        <p>Nenhum produto cadastrado.</p>
+    <p>Nenhum produto cadastrado.</p>
     {% endfor %}
-
-</body>
+  </body>
 </html>
